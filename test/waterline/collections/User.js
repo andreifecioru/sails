@@ -60,14 +60,15 @@ exports.attributes = {
 // (this is optional and normally automatically populated based on file name)
 exports.identity = 'User';
 
+exports.adapter = 'sails-riak';
 
 // For testing purposes, the following adapter configurations are provided:
 
 ////////////////////////////////////////////////////////
 // development: temporal (in-memory dirtydb)
 ////////////////////////////////////////////////////////
-exports.adapter = 'sails-dirty';
-exports.inMemory = true;
+// exports.adapter = 'sails-dirty';
+// exports.inMemory = true;
 
 ////////////////////////////////////////////////////////
 // mySQL
