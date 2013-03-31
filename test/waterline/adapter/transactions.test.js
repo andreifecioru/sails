@@ -80,8 +80,8 @@ describe ('transactions',function () {
 			dummyTransactionTest(_.range(50),'number test 1',done);
 		});
 
-		it('should support 200 simultaneous dummy transactions', function(done) {
-			dummyTransactionTest(_.range(200),'number test 2',done);
+		it('should support 100 simultaneous dummy transactions', function(done) {
+			dummyTransactionTest(_.range(100),'number test 2',done);
 		});
 
 		function dummyTransactionTest(items,type,done) {

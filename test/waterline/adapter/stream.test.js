@@ -59,9 +59,14 @@ describe('streaming', function() {
 			}, function (err, results) {
 				if (err) throw new Error(err);
 				else if (!(results.streamReady && results.findAllReady)) throw new Error ('Invalid results sent.');
-				
+
+        // Transform all strings back to their object-representation
+        // and then sort the collection in preparation for the comparison stage
+        var findAllObjects = _.sortBy(JSON.parse(results.findAllReady), function(model) { return model.id});
+        var streamObjects = _.sortBy(JSON.parse(results.streamReady), function(model) { return model.id});
+
 				// Check equality of findAll() and stream() result sets
-				var equals = _.isEqual(results.findAllReady, results.streamReady);
+				var equals = _.isEqual(findAllObjects, streamObjects);
 				if (!equals) cb(new Error('JSON over stream does not equal JSON-stringified findAll() model values!'));
 				else cb();
 			});
